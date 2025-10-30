@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 
 public class AccountManager {
 
-	String account_number, name, credit_interest_rate;
+	String account_number, name, ICustomDefine;
 	int balance, interest_rate;
 	
 	private Account[] accounts;
@@ -45,9 +45,9 @@ public class AccountManager {
 		if (choice == 1) {
 			System.out.println(" A, B, C 중에서 골라주세요! ");
 			System.out.print(" 신용 등급 : ");
-			credit_interest_rate = BankingSystemMain.scan.nextLine();
-			HighCreditAccount high = new HighCreditAccount(account_number, name, credit_interest_rate, interest_rate,
-					balance);
+			ICustomDefine = BankingSystemMain.scan.nextLine();
+			HighCreditAccount high = new HighCreditAccount(
+				account_number, name, ICustomDefine, interest_rate,balance);
 			accounts[numOfAccounted++] = high;
 		} else if (choice == 2) {
 			System.out.print("");
@@ -93,6 +93,7 @@ public class AccountManager {
 		for (int i = 0; i < numOfAccounted; i++) {
 			if (accounts[i].account_number.equals(Accountsed)) {
 				accounts[i].deposit(money);
+				System.out.println("입금 후 현제 잔액은 "+accounts[i].balance+" 원 입니다.");
 				System.out.println("=====================================");
 				return;
 			}

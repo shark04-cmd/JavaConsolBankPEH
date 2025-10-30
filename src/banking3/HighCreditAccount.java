@@ -5,13 +5,14 @@ public class HighCreditAccount extends Account implements ICustomDefine {
 	
 	
 	int interest_rate; // 이자율
-	int credit_interest_rate = 0; // 신용 등급에 따른 이자율
+	String credit_interest_rate;
 
 	public HighCreditAccount(String account_number, 
 			String name, String credit_interest_rate, int balance,
 				int interest_rate) {
 		super(account_number, name, balance);
 		this.interest_rate = interest_rate;
+		this.ICustomDefine=credit_interest_rate;
 	}
 	
 	@Override
