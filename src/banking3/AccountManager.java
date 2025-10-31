@@ -23,12 +23,14 @@ public class AccountManager {
 	5.이자율 입력 
 	6. 신용 등급 입력 */
 	public void makeAccount() {
+		
 		System.out.println(" ☆★☆계좌 선택☆★☆ ");
 		System.out.println(" (1) 신용 신뢰 계좌 ");
 		System.out.println(" (2) 보통 예금 계좌 ");
 		System.out.print(" 선택해주세요! : ");
 		int choice = BankingSystemMain.scan.nextInt();
 		BankingSystemMain.scan.nextLine();
+		
 		
 		System.out.println(" ☆★☆신규 계좌 개설☆★☆ ");
 		System.out.print(" 계좌 번호 : ");
