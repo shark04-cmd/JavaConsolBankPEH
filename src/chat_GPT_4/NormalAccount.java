@@ -1,5 +1,7 @@
 package chat_GPT_4;
 
+
+
 public class NormalAccount extends Account {
     protected int interest; // 기본이자율 (%)
 
@@ -7,13 +9,13 @@ public class NormalAccount extends Account {
         super(accNum, name, balance);
         this.interest = interest;
     }
-
+    
     @Override
     public void deposit(int money) {
         balance += balance * interest / 100;
         balance += money;
     }
-
+    
     @Override
     public void showAccInfo() {
         super.showAccInfo();

@@ -1,19 +1,22 @@
 package banking4;
 
+import java.util.HashSet;
 import java.util.InputMismatchException;
 
 public class AccountManager {
-
-	String account_number, name, ICustomDefine;
+	
+	String account_number, name, ICustomDefine, credit_interest_rate;
 	int balance, interest_rate;
-
-	private Account[] accounts;
-	private int numOfAccounted;
-
+	
+	private HashSet<Account> accounts;
+	
 	public AccountManager(int num) {
-		accounts = new Account[num];
-		numOfAccounted = 0;
+		accounts = new HashSet<>();
 	}
+	
+	
+	
+	
 	
 /*	신규 계좌 개설 makeAccount 
 	조건 
@@ -42,26 +45,32 @@ public class AccountManager {
 
 		choice = BankingSystemMain.scan.nextInt();
 		BankingSystemMain.scan.nextLine();
+		
 		if (choice > 0 && choice < 3) {
 			System.out.println("===========신규계좌===========");
 			System.out.print(" 계좌 번호 : ");
 			account_number = BankingSystemMain.scan.nextLine();
+			Account temp = new Account(account_number, null, 0); // 계좌번호만!
 			
-//			System.out.println(" 동일한 계좌가 존재합니다.");
-//			System.out.println(" 계좌를 덮어쓰기 할까요? (Y) , (N)");
-//			System.out.print(" 입력해주세요 : ");
-//			String input = BankingSystemMain.scan.nextLine()
-//					.trim().toUpperCase();
-//			if (input.equals("Y")) {
-//			System.out.println(" 기존 계좌를 삭제 후 덮어쓰기 하였습니다.. ");
-//			return;
-//			}
-//			else{
-//			System.out.println("=====================================");
-//			System.out.println("출금이 취소되었습니다.");
-//			return;
-//			}
-			
+			if(accounts.contains(temp)) {
+				System.out.println(" 입력하신 계좌가 이미 존재합니다.");
+				System.out.println(" 계좌를 덮어쓰기 할까요? (Y) , (N)");
+				System.out.print(" 입력해주세요 : ");
+				String input = BankingSystemMain.scan.nextLine()
+					.trim().toUpperCase();
+				
+				if (input.equals("Y")) {
+					accounts.remove(temp);
+				}
+				System.out.println(" 기존 계좌를 삭제 후 덮어쓰기 하였습니다.. ");
+				return;
+			}
+			else{
+				System.out.println("=====================================");
+					System.out.println(" 신규 계좌 생성이 취소되었습니다.");
+					return;
+			}
+		
 			System.out.print(" 이름 : ");
 			name = BankingSystemMain.scan.nextLine();
 			System.out.print(" 계좌 잔액 : ");
@@ -70,7 +79,7 @@ public class AccountManager {
 			System.out.print(" 이자율 : ");
 			interest_rate = BankingSystemMain.scan.nextInt();
 			BankingSystemMain.scan.nextLine();
-		} 
+		}
 		else {
 			System.out.println("============================");
 			System.out.println(" 1 혹은 2 로만 입력해주세요");
@@ -81,13 +90,15 @@ public class AccountManager {
 			System.out.print(" 신용 등급 : ");
 			ICustomDefine = BankingSystemMain.scan.nextLine()
 				.trim().toUpperCase();
-			HighCreditAccount high = new HighCreditAccount(
-				account_number, name, ICustomDefine, interest_rate, balance);
-			accounts[numOfAccounted++] = high;
+			HighCreditAccount high=new HighCreditAccount(
+					account_number, name, credit_interest_rate,
+					interest_rate, balance);
+			accounts.add(high);
 		} 
+		
 		else if (choice == 2) {
-			accounts[numOfAccounted++] = new NormalAccount(
-				account_number, name, balance, interest_rate);
+			accounts.add(new NormalAccount(
+				account_number, name, balance, interest_rate));
 		}
 		System.out.println("============================");
 		System.out.println(" 계좌정보 입력이 완료되었습니다! ");
@@ -137,7 +148,7 @@ public class AccountManager {
 			}
 		}
 		System.out.println("============================");
-		System.out.println(" 동일한 계좌가 없습니다. ");
+		System.out.println(" 입력하신 계좌가 없습니다. ");
 		return;
 	}
 	
@@ -228,7 +239,7 @@ public class AccountManager {
 	계좌 번호가 같다면 계좌 정보가 삭제된다. 
 	계좌 정보			*/
 	public void deleteAccount() {
-		System.out.println("==========삭제하실계좌==========");
+		System.out.println("===========계좌삭제===========");
 		System.out.print(" 계좌 번호 : ");
 		account_number = BankingSystemMain.scan.nextLine();
 		
