@@ -201,6 +201,13 @@ public class AccountManager {
 			accounts[i].showAccInfo();
 		}
 	}
+	
+/*
+	계좌정보 삭제 
+	내가 입력한 값이랑 계좌 번호가 같다면 
+	계좌 정보가 삭제된다.
+	계좌 정보 
+*/
 }
 /*
 컨트롤 클래스로 프로그램의 전반적인 기능을 구현한다.
