@@ -24,7 +24,6 @@ public class Account {
 		System.out.println(" 성함 : " + name);
 		System.out.println(" 계좌 잔액 : " + balance);
 	}
-
 }
 
 /*
