@@ -1,5 +1,7 @@
 package banking4;
 
+import java.util.HashSet;
+
 public class HighCreditAccount extends 
 	Account implements ICustomDefine {
 	
@@ -37,6 +39,12 @@ public class HighCreditAccount extends
 		super.showAccInfo();
 		System.out.println(" 이자율 : " + interest_rate + "%");
 		System.out.println(" 신용 등급 : " + ICustomDefine);
+	}
+	
+	@Override
+	public static void hashCode() {
+		HashSet<String>hSet=new HashSet<String>();
+		hSet.add(accounts[i].account_number);
 	}
 }
 /*

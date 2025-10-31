@@ -16,13 +16,15 @@ public class Account {
 	}
 	
 	public void withdraw(int money) {
-		
 	}
 	
 	public void showAccInfo() {
 		System.out.println(" 계좌 번호 : " + account_number);
 		System.out.println(" 성함 : " + name);
 		System.out.println(" 계좌 잔액 : " + balance);
+	}
+	
+	public void hashCode(String account_number) {
 	}
 }
 
@@ -35,11 +37,9 @@ HighCreditAccount.java :
 	Ex) 5000 + (5000 * 0.02) +
 	(5000 * 0.04) + 2000 = 7,300원
 
-의 부모클래스로 만든다.
 
 메뉴도 인터페이스형 상수로 
 인터페이스 이상함 
 코드정렬
-
 @Override 없는 부분(상속 받은 클래스)
 */

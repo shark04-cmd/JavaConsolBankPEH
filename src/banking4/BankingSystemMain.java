@@ -7,8 +7,6 @@ public class BankingSystemMain extends MenuSelectException {
 	
 	public static Scanner scan = new Scanner(System.in);
 	
-	//String ICustomDefine;
-	
 	public static void showMenu() {
 		
 		System.out.println();
@@ -31,26 +29,26 @@ public class BankingSystemMain extends MenuSelectException {
 			try {
 				int choice = scan.nextInt();
 				BankingSystemMain.scan.nextLine();
-				if (choice < MAKE || choice > EXIT) {
+				if (choice < ICustomDefine.MAKE || choice > ICustomDefine.EXIT) {
 					throw new MenuSelectException();
 				}
 				switch (choice) {
 				case ICustomDefine.MAKE:
 					handler.makeAccount();
 					break;
-				case DEPOSIT:
+				case ICustomDefine.DEPOSIT:
 					handler.depositMoney();
 					break;
-				case WITHDRAW:
+				case ICustomDefine.WITHDRAW:
 					handler.withdrawMoney();
 					break;
-				case INQUIRE:
+				case ICustomDefine.INQUIRE:
 					handler.showAccInfo();
 					break;
-//				case DELETE;
-//					handler.deleteAccount();
-//					break;
-				case EXIT:
+				case ICustomDefine.DELETE:
+					handler.deleteAccount();
+					break;
+				case ICustomDefine.EXIT:
 					System.out.println("============================");
 					System.out.println(" 프로그램 종료 ");
 					return;
