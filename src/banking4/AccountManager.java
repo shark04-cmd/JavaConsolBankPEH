@@ -94,7 +94,7 @@ public class AccountManager {
 		}
 		if (0 >= money) { // 0 < money 도 가능
 			System.out.println("============================");
-			System.out.println(" 입금액은 0원보다 많아야 합니다.");
+			System.out.println(" 입금액은 0원보다 많아야 합니다. ");
 			System.out.println();
 			return;
 		}
