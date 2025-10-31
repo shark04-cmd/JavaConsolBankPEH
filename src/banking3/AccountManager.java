@@ -78,7 +78,8 @@ public class AccountManager {
 		try {
 			System.out.print(" 입금할 금액 : ");
 			money = BankingSystemMain.scan.nextInt();
-		} catch (InputMismatchException e) {
+		} 
+		catch (InputMismatchException e) {
 			System.out.println("금액은 숫자로 입력해야 합니다.");
 			return;
 		}
@@ -123,8 +124,8 @@ public class AccountManager {
 			System.out.print(" 출금할 금액 : ");
 			money = BankingSystemMain.scan.nextInt();
 			BankingSystemMain.scan.nextLine();
-			
-		} catch (InputMismatchException e) {
+		} 
+		catch (InputMismatchException e) {
 			System.out.println(" 숫자만 입력이 가능합니다.");
 			return;
 		}
@@ -141,10 +142,10 @@ public class AccountManager {
 			if (accounts[i].account_number.equals(accounted)) {
 				if (accounts[i].balance <= money) {
 					System.out.println(" 잔고가 부족합니다.");
-					System.out.println(" 금액전체를 출금할까요? (Y , N)");
+					System.out.println(" 금액전체를 출금할까요? (Y) , (N)");
 					System.out.print(" 입력해주세요 : ");
 					String input = BankingSystemMain.scan.
-							nextLine().trim().toUpperCase();
+						nextLine().trim().toUpperCase();
 					if (input.equals("Y")) {
 						System.out.println(accounts[i].balance + "원이 출금되었습니다.");
 						accounts[i].withdraw(accounts[i].balance);
@@ -160,7 +161,7 @@ public class AccountManager {
 				System.out.println(" 출금이 완료되었습니다! ");
 				System.out.println();
 				System.out.println(" 출금하신 계좌의 현제 금액은 : " +
-						accounts[i].balance + " 원 입니다.");
+					accounts[i].balance + " 원 입니다.");
 				System.out.println("=====================================");
 				return;
 			}
@@ -190,5 +191,5 @@ public class AccountManager {
 	}
 }
 /*
- * 컨트롤 클래스로 프로그램의 전반적인 기능을 구현한다.
- */
+컨트롤 클래스로 프로그램의 전반적인 기능을 구현한다.
+*/
