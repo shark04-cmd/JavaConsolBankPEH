@@ -2,7 +2,6 @@ package banking4;
 
 public class Account {
 	
-	public static Object subject;
 	String account_number; 	// 계좌번호
 	String name; 			// 이름
 	int balance;			// 잔액
@@ -28,7 +27,7 @@ public class Account {
 	public void hashCode(String account_number) {
 	}
 
-	public static Object account_number() {
+	public Object getAccountNumber() {
 		return null;
 	}
 }

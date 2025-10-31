@@ -70,7 +70,6 @@ public class AccountManager {
 					System.out.println(" 신규 계좌 생성이 취소되었습니다.");
 					return;
 			}
-		
 			System.out.print(" 이름 : ");
 			name = BankingSystemMain.scan.nextLine();
 			System.out.print(" 계좌 잔액 : ");
@@ -79,11 +78,6 @@ public class AccountManager {
 			System.out.print(" 이자율 : ");
 			interest_rate = BankingSystemMain.scan.nextInt();
 			BankingSystemMain.scan.nextLine();
-		}
-		else {
-			System.out.println("============================");
-			System.out.println(" 1 혹은 2 로만 입력해주세요");
-			return;
 		}
 		if (choice == 1) {
 			System.out.println(" A, B, C 중에서 골라주세요! ");
@@ -95,14 +89,20 @@ public class AccountManager {
 					interest_rate, balance);
 			accounts.add(high);
 		} 
-		
 		else if (choice == 2) {
 			accounts.add(new NormalAccount(
 				account_number, name, balance, interest_rate));
 		}
+		else {
+			System.out.println("============================");
+			System.out.println(" 1 혹은 2 로만 입력해주세요");
+			return;
+		}
 		System.out.println("============================");
 		System.out.println(" 계좌정보 입력이 완료되었습니다! ");
+		return
 	}
+	
 	
 /*	입금 계좌 depositMoney 
 	입금 값 받는곳 deposit 
@@ -129,7 +129,7 @@ public class AccountManager {
 			System.out.println("금액은 숫자로 입력해야 합니다.");
 			return;
 		}
-		if (0 >= money) { // 0 < money 도 가능
+		if ( money <= 0) { // 0 < money 도 가능
 			System.out.println("============================");
 			System.out.println(" 입금액은 0원보다 많아야 합니다. ");
 			return;
@@ -139,11 +139,14 @@ public class AccountManager {
 			System.out.println(" 입금액은 500원 단위로만 가능합니다.");
 			return;
 		}
-		for (int i = 0; i < numOfAccounted; i++) {
-			if (accounts[i].account_number.equals(Accountsed)) {
-				accounts[i].deposit(money);
+		
+		boolean found = false;
+		for (Account acc : accounts) {
+			if (acc.getAccountNumber().equals(Accountsed)) {
+				acc.deposit(money);
 				System.out.println("입금 후 현제 잔액은 " 
-					+ accounts[i].balance + " 원 입니다.");
+					+ acc.balance + " 원 입니다.");
+				found = true;
 				return;
 			}
 		}
@@ -159,6 +162,7 @@ public class AccountManager {
 	3. 출금액이 잔고보다 많아야 할것 
 	4. 출금시 1000원 단위로만 출금할것 
 	5. 동일한 계좌가 존제할것 */
+	
 	public void withdrawMoney() { // 출금
 		System.out.println("============출금============");
 		System.out.println();
@@ -186,9 +190,11 @@ public class AccountManager {
 			System.out.println(" 출금은 1000원 단위로만 가능합니다.");
 			return;
 		}
-		for (int i = 0; i < numOfAccounted; i++) {
-			if (accounts[i].account_number.equals(accounted)) {
-				if (accounts[i].balance <= money) {
+		boolean found = false;
+		for (Account acc : accounts) {
+			if (acc.getAccountNumber().equals(accounted)) {
+				found = true;
+				if (money > acc.balance()) {
 					System.out.println(" 잔고가 부족합니다.");
 					System.out.println(" 금액전체를 출금할까요? (Y) , (N)");
 					System.out.print(" 입력해주세요 : ");
@@ -196,8 +202,8 @@ public class AccountManager {
 							.trim().toUpperCase();
 					if (input.equals("Y")) {
 						System.out.println("=====================================");
-						System.out.println(accounts[i].balance + "원이 출금되었습니다.");
-						accounts[i].withdraw(accounts[i].balance);
+						System.out.println(acc.balance() + "원이 출금되었습니다.");
+						acc.withdraw(acc.balance());
 						return; // 내가 한것 급여 - 급여 해서 0원으로 만들었음
 					} 			// 보통 하는것 급여 = 0 급여에 0을 대입해서 0원으로 만듦
 					else {
@@ -206,10 +212,10 @@ public class AccountManager {
 						return;
 					}
 				}
-				accounts[i].withdraw(money);
+				acc.withdraw(money);
 				System.out.println("=====================================");
 				System.out.println(" 출금이 완료되었습니다! ");
-				System.out.println(" 출금하신 계좌의 현제 금액은 : " + accounts[i].balance + " 원 입니다.");
+				System.out.println(" 출금하신 계좌의 현제 금액은 : " + acc.balance() + " 원 입니다.");
 				return;
 			}
 		}
@@ -229,8 +235,8 @@ public class AccountManager {
 	신용등급 		*/
 	public void showAccInfo() {
 		System.out.println("===========계좌출력===========");
-		for (int i = 0; i < numOfAccounted; i++) {
-			accounts[i].showAccInfo();
+		for (Account acc : accounts) {
+			acc.showAccInfo();
 		}
 	}
 	
@@ -241,9 +247,19 @@ public class AccountManager {
 	public void deleteAccount() {
 		System.out.println("===========계좌삭제===========");
 		System.out.print(" 계좌 번호 : ");
-		account_number = BankingSystemMain.scan.nextLine();
+		String account_number = BankingSystemMain.scan.nextLine();
 		
-		
+		Account temp = new Account(account_number, null, 0);
+		if (accounts.remove(temp)) {
+			System.out.println("=====================================");
+			System.out.println(" 계좌번호에 맞는 계좌가 삭제되었습니다.");
+			return;
+		}
+		else {
+			System.out.println("=====================================");
+			System.out.println(" 계좌번호에 맞는 계좌가 없습니다.");
+			return;
+		}
 		
 		
 		
