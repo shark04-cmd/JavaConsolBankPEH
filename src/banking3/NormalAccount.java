@@ -13,9 +13,7 @@ public class NormalAccount extends Account {
 	@Override
 	public void deposit(int money) {
 		balance += (balance * interest_rate / 100) + money;
-		System.out.println();
 		System.out.println(" 입금이 완료되었습니다! ");
-		System.out.println();
 	}
 	
 	@Override
@@ -26,11 +24,9 @@ public class NormalAccount extends Account {
 	
 	@Override
 	public void showAccInfo() {
-		System.out.println("---------------------------");
-		System.out.println(" 보통 예금 계좌 ");
+		System.out.println("===========보통계좌===========");
 		super.showAccInfo();
 		System.out.println(" 이자율 : " + interest_rate + "%");
-		System.out.println();
 	}
 }
 /*

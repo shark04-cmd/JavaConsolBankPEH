@@ -10,6 +10,9 @@ public class BankingSystemMain extends MenuSelectException implements ICustomDef
 	String ICustomDefine;
 	
 	public static void showMenu() {
+		
+		System.out.println();
+		System.out.println("============MENU============");
 		System.out.println(" 원하시는 번호를 선택해주세요!");
 		System.out.println(" (1) 개좌 개설 ");
 		System.out.println(" (2) 입금 ");
@@ -49,16 +52,12 @@ public class BankingSystemMain extends MenuSelectException implements ICustomDef
 				}
 			}
 			catch (MenuSelectException e) {
-				System.out.println("=====================================");
-				System.err.println();
-				System.out.println(" 1~5 사이만 써주세요! ");
-				System.out.println("=====================================");
+				System.out.println("============================");
+				System.out.println(" 1~5 안에있는 정수만 써주세요! ");
 			}
 			catch (InputMismatchException e) {
-				System.out.println("=====================================");
-				System.err.println();
+				System.out.println("============================");
 				System.out.println(" 숫자만 써주세요!");
-				System.out.println("=====================================");
 				scan.nextLine();
 			}
 		}

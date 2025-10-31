@@ -8,11 +8,11 @@ public class HighCreditAccount extends Account implements ICustomDefine {
 	String credit_interest_rate;
 
 	public HighCreditAccount(String account_number, 
-			String name, String credit_interest_rate, int balance,
-				int interest_rate) {
+			String name, String credit_interest_rate,
+			int interest_rate,int balance) {
 		super(account_number, name, balance);
 		this.interest_rate = interest_rate;
-		this.ICustomDefine=credit_interest_rate;
+		this.ICustomDefine = credit_interest_rate;
 	}
 	
 	@Override
@@ -32,12 +32,10 @@ public class HighCreditAccount extends Account implements ICustomDefine {
 	
 	@Override
 	public void showAccInfo() {
-		System.out.println("---------------------------");
-		System.out.println(" 신용 신뢰 계좌 ");
+		System.out.println("===========신용계좌===========");
 		super.showAccInfo();
 		System.out.println(" 이자율 : " + interest_rate + "%");
 		System.out.println(" 신용 등급 : " + ICustomDefine);
-		System.out.println();
 	}
 }
 /*
