@@ -14,14 +14,18 @@ public class AccountManager {
 		accounts = new Account[num];
 		numOfAccounted = 0;
 	}
-
-	/*
-	 * 신규 계좌 개설 makeAccount 조건 1. 신용계좌인지 보통계좌인지 나눌 것 2. 계좌번호 입력 3. 이름 입력 4. 잔액입력
-	 * 5.이자율 입력 6. 신용 등급 입력
-	 */
+	
+/*	신규 계좌 개설 makeAccount 
+	조건 
+	1. 신용계좌인지 보통계좌인지 나눌 것 
+	2. 계좌번호 입력 
+	3. 이름 입력 
+	4. 잔액입력
+	5.이자율 입력 
+	6. 신용 등급 입력		*/
 	public void makeAccount() {
 		int choice = 0;
-
+		
 		System.out.println("===========계좌선택===========");
 		System.out.println(" (1) 신용 신뢰 계좌 ");
 		System.out.println(" (2) 보통 예금 계좌 ");
@@ -128,7 +132,8 @@ public class AccountManager {
 			System.out.print(" 출금할 금액 : ");
 			money = BankingSystemMain.scan.nextInt();
 			BankingSystemMain.scan.nextLine();
-		} catch (InputMismatchException e) {
+		} 
+		catch (InputMismatchException e) {
 			System.out.println("=====================================");
 			System.out.println(" 숫자만 입력이 가능합니다.");
 			return;
@@ -138,7 +143,6 @@ public class AccountManager {
 			System.out.println("출금액은 0원보다 많아야 합니다.");
 			return;
 		}
-
 		if (0 != money % 1000) {
 			System.out.println("=====================================");
 			System.out.println(" 출금은 1000원 단위로만 가능합니다.");
@@ -156,7 +160,8 @@ public class AccountManager {
 						System.out.println(accounts[i].balance + "원이 출금되었습니다.");
 						accounts[i].withdraw(accounts[i].balance);
 						return;
-					} else {
+					} 
+					else {
 						System.out.println("=====================================");
 						System.out.println("출금이 취소되었습니다.");
 						return;
@@ -184,7 +189,7 @@ public class AccountManager {
 	이자율 		이자율 
 	신용등급 		*/
 	public void showAccInfo() {
-		System.out.println("☆★☆계좌정보가 출력되었습니다☆★☆");
+		System.out.println("===========계좌출력===========");
 		for (int i = 0; i < numOfAccounted; i++) {
 			accounts[i].showAccInfo();
 		}
@@ -194,6 +199,8 @@ public class AccountManager {
 	내가 입력한 값이랑 
 	계좌 번호가 같다면 계좌 정보가 삭제된다. 
 	계좌 정보			*/
+	
+	
 }
 /*
 컨트롤 클래스로 프로그램의 

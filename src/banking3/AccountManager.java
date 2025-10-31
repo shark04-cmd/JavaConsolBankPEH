@@ -196,7 +196,7 @@ public class AccountManager {
 	이자율 		이자율 
 	신용등급				*/
 	public void showAccInfo() {
-		System.out.println("☆★☆계좌정보가 출력되었습니다☆★☆");
+		System.out.println("===========계좌출력===========");
 		for (int i = 0; i < numOfAccounted; i++) {
 			accounts[i].showAccInfo();
 		}

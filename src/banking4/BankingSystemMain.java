@@ -3,7 +3,8 @@ package banking4;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class BankingSystemMain extends MenuSelectException implements ICustomDefine {
+public class BankingSystemMain extends MenuSelectException 
+	implements ICustomDefine {
 	
 	public static Scanner scan = new Scanner(System.in);
 	
