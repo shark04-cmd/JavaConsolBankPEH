@@ -3,12 +3,11 @@ package banking4;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class BankingSystemMain extends MenuSelectException 
-	implements ICustomDefine {
+public class BankingSystemMain extends MenuSelectException {
 	
 	public static Scanner scan = new Scanner(System.in);
 	
-	String ICustomDefine;
+	//String ICustomDefine;
 	
 	public static void showMenu() {
 		
@@ -36,7 +35,7 @@ public class BankingSystemMain extends MenuSelectException
 					throw new MenuSelectException();
 				}
 				switch (choice) {
-				case MAKE:
+				case ICustomDefine.MAKE:
 					handler.makeAccount();
 					break;
 				case DEPOSIT:
