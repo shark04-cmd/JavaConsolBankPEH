@@ -22,13 +22,11 @@ public class BankingSystemMain extends MenuSelectException implements ICustomDef
 	public static void main(String[] args) {
 		AccountManager handler = new AccountManager(50);
 		while (true) {
-			int choice;
 			showMenu();
-			choice = scan.nextInt();
-			BankingSystemMain.scan.nextLine();
 			
 			try {
-				
+				int choice = scan.nextInt();
+				BankingSystemMain.scan.nextLine();
 				if (choice < MAKE || choice > EXIT) {
 					throw new MenuSelectException();
 				}
@@ -61,7 +59,7 @@ public class BankingSystemMain extends MenuSelectException implements ICustomDef
 				System.err.println();
 				System.out.println(" 숫자만 써주세요!");
 				System.out.println("=====================================");
-				choice = 1;
+				scan.nextLine();
 			}
 		}
 	}
