@@ -45,22 +45,25 @@ public class AccountManager {
 			System.out.print(" 이자율 : ");
 			interest_rate = BankingSystemMain.scan.nextInt();
 			BankingSystemMain.scan.nextLine();
-		} else {
+		} 
+		else {
 			System.out.println("============================");
 			System.out.println(" 1 혹은 2 로만 입력해주세요");
-			System.out.println();
 			return;
 		}
 		if (choice == 1) {
 			System.out.println(" A, B, C 중에서 골라주세요! ");
 			System.out.print(" 신용 등급 : ");
 			ICustomDefine = BankingSystemMain.scan.nextLine();
-			HighCreditAccount high = new HighCreditAccount(account_number, name, ICustomDefine, interest_rate, balance);
+			HighCreditAccount high = new HighCreditAccount(
+				account_number, name, ICustomDefine, interest_rate, balance);
 			accounts[numOfAccounted++] = high;
-		} else if (choice == 2) {
-			System.out.print("");
-			accounts[numOfAccounted++] = new NormalAccount(account_number, name, balance, interest_rate);
+		} 
+		else if (choice == 2) {
+			accounts[numOfAccounted++] = new NormalAccount(
+				account_number, name, balance, interest_rate);
 		}
+		System.out.println("============================");
 		System.out.println(" 계좌정보 입력이 완료되었습니다! ");
 	}
 	
@@ -92,13 +95,11 @@ public class AccountManager {
 		if (0 >= money) { // 0 < money 도 가능
 			System.out.println("============================");
 			System.out.println(" 입금액은 0원보다 많아야 합니다. ");
-			System.out.println();
 			return;
 		}
 		if (money % 500 != 0) {
 			System.out.println("============================");
 			System.out.println(" 입금액은 500원 단위로만 가능합니다.");
-			System.out.println();
 			return;
 		}
 		for (int i = 0; i < numOfAccounted; i++) {
@@ -110,7 +111,6 @@ public class AccountManager {
 		}
 		System.out.println("============================");
 		System.out.println(" 동일한 계좌가 없습니다. ");
-		System.out.println();
 		return;
 	}
 	
