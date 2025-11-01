@@ -3,7 +3,7 @@ package banking4;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class BankingSystemMain extends MenuSelectException {
+public class BankingSystemMain extends MenuSelectException implements ICustomDefine {
 	
 	public static Scanner scan = new Scanner(System.in);
 	
@@ -22,6 +22,7 @@ public class BankingSystemMain extends MenuSelectException {
 	}
 	
 	public static void main(String[] args) {
+		
 		AccountManager handler = new AccountManager(50);
 		while (true) {
 			showMenu();
