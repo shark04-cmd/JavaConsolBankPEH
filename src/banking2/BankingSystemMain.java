@@ -16,6 +16,7 @@ public class BankingSystemMain implements ICustomDefine {
 		System.out.println(" (4) 계좌정보 출력");
 		System.out.println(" (5) 프로그램 종료");
 		System.out.print(" 메뉴 선택 :");
+		System.out.println("찡긋");
 	}
 	
 	public static void main(String[] args) {
