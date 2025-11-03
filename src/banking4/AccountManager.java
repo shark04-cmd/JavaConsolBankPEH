@@ -5,8 +5,7 @@ import java.util.InputMismatchException;
 
 public class AccountManager {
 
-	String account_number, name, ICustomDefine
-		, credit_interest_rate;
+	String account_number, name, ICustomDefine;
 	int balance, interest_rate;
 
 	private HashSet<Account> accounts;

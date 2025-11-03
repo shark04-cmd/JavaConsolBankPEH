@@ -1,7 +1,9 @@
 package banking4;
 
 public interface ICustomDefine {
+//	인터페이스 형으로 만들어서 다른 프로그램에서 값을 쓸수있음
 	
+//	메인메서드에서 쓸 상수를 정의
 	int MAKE	 = 1;
 	int DEPOSIT	 = 2;
 	int WITHDRAW = 3;
@@ -9,6 +11,7 @@ public interface ICustomDefine {
 	int DELETE	 = 5;
 	int EXIT	 = 6;
 	
+//	신용 계좌에서 쓸 신용등급을 정의
 	int A = 7;
 	int B = 4;
 	int C = 2;
