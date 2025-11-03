@@ -2,7 +2,7 @@
 package banking4;
  
 =======
-package banking4;//T
+package banking4;//T.
 
 >>>>>>> branch 'main' of https://github.com/shark04-cmd/JavaConsolBankPEH
 import java.util.InputMismatchException;
