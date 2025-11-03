@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 public class AccountManager {
 	
 /*	이 클래스에서 쓸 계좌번호 , 이름 , 신용등급 등을저장할 변수
-	
+	컨트롤 클래스로 이 클래스에서 대부분 계산 , 입력 등을 한다.
 */
 	String account_number, name, ICustomDefine;
 	int balance, interest_rate;
@@ -241,6 +241,7 @@ public class AccountManager {
 						return;
 					}
 				}
+//				만약 예외상황이 없을시에는 출금액을 출력
 				acc.withdraw(money);
 				System.out.println("=====================================");
 				System.out.println(" 출금이 완료되었습니다! ");
@@ -249,6 +250,7 @@ public class AccountManager {
 				return;
 			}
 		}
+//		계좌번호와 동일한 계좌가 없을시 출금 종료
 		System.out.println("=====================================");
 		System.out.println(" 동일한 계좌가 없습니다. ");
 		return;
@@ -276,13 +278,15 @@ public class AccountManager {
 		System.out.println("===========계좌삭제===========");
 		System.out.print(" 계좌 번호 : ");
 		String account_number = BankingSystemMain.scan.nextLine();
-
+		
+//		계좌번호를 입력하여 같은 계좌가 있다면 삭제
 		Account temp = new Account(account_number, null, 0, 0);
 		if (accounts.remove(temp)) {
 			System.out.println("=====================================");
 			System.out.println(" 계좌번호에 맞는 계좌가 삭제되었습니다.");
 			return;
 		} 
+//		계좌번호와 동일한 계좌가 없으면 계좌 삭제 종료
 		else {
 			System.out.println("=====================================");
 			System.out.println(" 계좌번호에 맞는 계좌가 없습니다.");
