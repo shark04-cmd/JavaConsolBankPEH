@@ -2,7 +2,21 @@ package banking4;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+/*	지금 까지 한것
+	1. 이 프로그램에 뼈대 제작 
+	(기본적인 입금 출금 계좌개설 등의 기능을 제작)
+	
+	2. 새로운 부모클래스를 만들어 자식클래스를 2개로 하여 
+	두개의 자식클래스의 차이점에 따라 관리
+	
+	3. 예외처리 및 추가로 입금, 출금을 할 때 
+	조건을 만듦
+	
+	4. 중복된 계좌들을 발견하고 그를 처리할지 유지할지
+	선택하는 조건을 만듦
+	추가로 메인에 계좌정보 삭제하는 메뉴를 추가
+	
+ */
 public class BankingSystemMain extends MenuSelectException {
 /*	예외처리를 위해 MenuSelectException 를 상속받음
 	실행시 문자 입력을 위해 스케너를 사용함
